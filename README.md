@@ -81,6 +81,10 @@ Step6. Interactive visualization:
 
 `anvi-display-pan -p <pangenome name>/<pangenome name>-PAN.db -g input-anvio-GENOMES.db/<basename>-GENOMES.db`
 
+Step7. Summarize and extract data for further analyses (pangenome curves, gene cluster heatmaps, etc). More information here https://anvio.org/help/main/programs/anvi-summarize/:
+
+`anvi-summarize -p <pangenome name>/<pangenome name>-PAN.db -g input-anvio-GENOMES.db/<basename>-GENOMES.db`
+
 Final remarks:
 
 - If you installed a virtual environment, you need to setup the variables `$PATH` and `$PYTHONPATH`:
