@@ -93,9 +93,13 @@ Step08. Determine similarity between genomes
 Step09. Phylogeny based on SCGs (using `X` threads and it requires a manually setup of a `layer-order.txt` file):
 
 `trimal -in <pangenome name>/<pangenome name>-aligned-SCGs.fa -out <pangenome name>/<pangenome name>-SCGs-clean.fa -gt 0.50`
+
 `iqtree2 -s <pangenome name>/<pangenome name>-aligned-SCGs-clean.fa -T X --mset WAG --ufboot 1000`
+
 `echo -e "item_name\tdata_type\tdata_value" > <pangenome name>/layer-order.txt`
-`echo -e "SCGs_Bayesian_Tree\tnewick\t`cat <pangenome name>/<pangenome name>-aligned-SCGs-clean.fa.contree`" >> <pangenome name>/layer-order.txt`
+
+`` echo -e "SCGs_Bayesian_Tree\tnewick\t`cat <pangenome name>/<pangenome name>-aligned-SCGs-clean.fa.contree`" >> <pangenome name>/layer-order.txt ``
+
 `anvi-import-misc-data -p <pangenome name>/<pangenome name>-PAN.db -t layer_orders <pangenome name>/layer-order.txt`
 
 Step10. Estimate metabolic coverage of CONTIG databases:
