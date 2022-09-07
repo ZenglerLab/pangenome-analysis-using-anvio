@@ -84,6 +84,7 @@ Step06. Interactive visualization:
 Step07. Summarize and extract data for further analyses (pangenome curves, gene cluster heatmaps, etc). More information here https://anvio.org/help/main/programs/anvi-summarize/:
 
 `anvi-script-add-default-collection -p <pangenome name>/<pangenome name>-PAN.db -C DEFAULT`
+
 `anvi-summarize -p <pangenome name>/<pangenome name>-PAN.db -g input-anvio-GENOMES.db/<basename>-GENOMES.db -C DEFAULT -o <pangenome name>/SUMMARY`
 
 Step08. Determine similarity between genomes
