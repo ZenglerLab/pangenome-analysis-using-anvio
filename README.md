@@ -4,7 +4,7 @@ Pangenome analysis using the MerenLab's Anvio software
 - Installation (under UNIX systems; sorry Windows users):
 
   Before to install Anvio, two things:
-  - Anvio works perfectly with python3.9, but no with python3.10 (due to dependencies that are not working properly with python3.10/pyQT5)
+  - Anvio works perfectly with python3.9, but not with python3.10 (due to dependencies that are not working properly with python3.10/pyQT5)
   - Anvio's scripts are set to work with python3 aliased as `python`, not `python3`.
   
   So, to install Anvio, the better option is to install Anaconda3 that is still shipped with python3.9. Then install anvio from the Python Package index using `pip install anvio`. If you feel adventurous, you can download anvio from `https://github.com/merenlab/anvio` and make it work with python3.9 in a virtual environment.
