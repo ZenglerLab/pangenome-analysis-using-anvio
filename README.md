@@ -109,7 +109,7 @@ Step10. Estimate metabolic coverage of CONTIG databases:
 
 Final remarks:
 
-- If you installed a virtual environment, you need to setup the variables `$PATH` and `$PYTHONPATH`:
+- If you installed a virtual environment, you need to setup the `$PATH` and `$PYTHONPATH` variables:
 
 ```
 source /opt/python3-venv/p39/bin/activate
