@@ -8,6 +8,27 @@ Pangenome analysis using the MerenLab's Anvio software
   - Anvio's scripts are set to work with python3 aliased as `python`, not `python3`.
   
   So, to install Anvio, the better option is to install Anaconda3 that is still shipped with python3.9. Then install anvio from the Python Package index using `pip install anvio`. If you feel adventurous, you can download anvio from `https://github.com/merenlab/anvio` and make it work with python3.9 in a virtual environment.
+
+- If you installed a virtual environment, you need to setup the `$PATH` and `$PYTHONPATH` variables:
+
+```
+source /opt/python3-venv/p39/bin/activate
+export PATH=$PATH:/opt/git-repositories/anvio.merenlab/bin
+export PATH=$PATH:/opt/git-repositories/anvio.merenlab/sandbox
+export PYTHONPATH=$PYTHONPATH:/opt/git-repositories/anvio.merenlab
+export PATH=$PATH:/opt/repositories/git-reps/FastANI.ParBLiSS
+export PATH=$PATH:/opt/repositories/git-reps/trimal.scapella/source
+export PATH=/opt/repositories/git-reps/diamond.bbuchfink/bin:$PATH
+```
+
+- To parallelize using `bash` (not `sh`):
+
+```
+for contig in $(find <directory with nucleotide fasta files> -depth -name "*fna" -name "*fa")
+  do ((j=j%8)); ((j++==0)) && wait;
+  <command here> &
+  done
+```
   
 - Now that you have installed python3.9/anvio, let's have fun:
 
@@ -106,26 +127,3 @@ Step09. Phylogeny based on SCGs (using `X` threads and it requires a manually se
 Step10. Estimate metabolic coverage of CONTIG databases:
 
 `anvi-estimate-metabolism --contigs-db input-anvio-contig-dbs/$(basename ${contig} .anvio.fa).db -O KEGG/$(basename ${contig} .fa)`
-
-Final remarks:
-
-- If you installed a virtual environment, you need to setup the `$PATH` and `$PYTHONPATH` variables:
-
-```
-source /opt/python3-venv/p39/bin/activate
-export PATH=$PATH:/opt/git-repositories/anvio.merenlab/bin
-export PATH=$PATH:/opt/git-repositories/anvio.merenlab/sandbox
-export PYTHONPATH=$PYTHONPATH:/opt/git-repositories/anvio.merenlab
-export PATH=$PATH:/opt/repositories/git-reps/FastANI.ParBLiSS
-export PATH=$PATH:/opt/repositories/git-reps/trimal.scapella/source
-export PATH=/opt/repositories/git-reps/diamond.bbuchfink/bin:$PATH
-```
-
-- To parallelize using `bash` (not `sh`):
-
-```
-for contig in $(find <directory with nucleotide fasta files> -depth -name "*fna" -name "*fa")
-  do ((j=j%8)); ((j++==0)) && wait;
-  <command here> &
-  done
-```
