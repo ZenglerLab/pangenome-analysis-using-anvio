@@ -24,7 +24,7 @@ export PATH=/opt/repositories/git-reps/diamond.bbuchfink/bin:$PATH
 - To parallelize using `bash` (not `sh`):
 
 ```
-for contig in $(find <directory with nucleotide fasta files> -depth -name "*fna" -name "*fa")
+for contig in $(find <directory with nucleotide fasta files> -depth -name "*fna")
   do ((j=j%8)); ((j++==0)) && wait;
   <command here> &
   done
